@@ -60,23 +60,12 @@ def register(body: RegisterSchema):
                 }
             )
 
-            return jsonify(
-                {
-                    "message": "User registered successfully",
-                    "user": user_response.model_dump(),
-                }
-            ), 201
+            return jsonify(user_response.model_dump()), 201
 
     except ValidationError as e:
-        return jsonify(
-            {
-                "error": "Validation error",
-                "message": "Invalid input data",
-                "details": e.errors(),
-            }
-        ), 400
+        return jsonify({"error": "Validation error", "details": e.errors()}), 400
     except ValueError as e:
-        return jsonify({"error": "Registration failed", "message": str(e)}), 409
+        return jsonify({"error": str(e)}), 409
     except Exception:
         logger.exception("Exception occurred during registration")
         return build_error_500_response()
@@ -102,15 +91,9 @@ def login(body: LoginSchema):
             return jsonify(login_response.model_dump()), 200
 
     except ValidationError as e:
-        return jsonify(
-            {
-                "error": "Validation error",
-                "message": "Invalid input data",
-                "details": e.errors(),
-            }
-        ), 400
+        return jsonify({"error": "Validation error", "details": e.errors()}), 400
     except ValueError as e:
-        return jsonify({"error": "Authentication failed", "message": str(e)}), 401
+        return jsonify({"error": str(e)}), 401
     except Exception:
         logger.exception("Exception occurred during login")
         return build_error_500_response()
@@ -135,15 +118,9 @@ def refresh_token(body: RefreshTokenSchema):
             return jsonify(result), 200
 
     except ValidationError as e:
-        return jsonify(
-            {
-                "error": "Validation error",
-                "message": "Invalid input data",
-                "details": e.errors(),
-            }
-        ), 400
+        return jsonify({"error": "Validation error", "details": e.errors()}), 400
     except ValueError as e:
-        return jsonify({"error": "Token refresh failed", "message": str(e)}), 401
+        return jsonify({"error": str(e)}), 401
     except Exception:
         logger.exception("Exception occurred during token refresh")
         return build_error_500_response()
@@ -165,9 +142,7 @@ def get_current_user():
     try:
         user_id = get_current_user_id()
         if not user_id:
-            return jsonify(
-                {"error": "Authentication required", "message": "No user ID found"}
-            ), 401
+            return jsonify({"error": "Authentication required"}), 401
 
         with get_db_session() as session:
             use_case = build_auth_use_case(AuthUseCaseEnum.GET_CURRENT_USER, session)
@@ -178,7 +153,7 @@ def get_current_user():
             return jsonify(user_response.model_dump()), 200
 
     except ValueError as e:
-        return jsonify({"error": "User not found", "message": str(e)}), 404
+        return jsonify({"error": str(e)}), 404
     except Exception:
         logger.exception("Exception occurred during current user retrieval")
         return build_error_500_response()
