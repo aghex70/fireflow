@@ -18,10 +18,10 @@ class CreateFilteringPolicyUseCase:
 
     def __init__(
         self,
-        policy_service: FilteringPolicyService,
+        filtering_policy_service: FilteringPolicyService,
         firewall_service: FirewallService,
     ):
-        self.policy_service = policy_service
+        self.filtering_policy_service = filtering_policy_service
         self.firewall_service = firewall_service
 
     def execute(
@@ -46,4 +46,4 @@ class CreateFilteringPolicyUseCase:
             status=schema.status,
         )
 
-        return self.policy_service.create_filtering_policy(policy)
+        return self.filtering_policy_service.create_filtering_policy(policy)
