@@ -8,7 +8,7 @@ BLUE := \033[0;34m
 RESET := \033[0m
 
 # Project configuration
-DOCKER_COMPOSE := docker-compose
+DOCKER_COMPOSE := $(shell if command -v docker-compose >/dev/null 2>&1; then echo "docker-compose"; else echo "docker compose"; fi)
 APP_SERVICE := fireflow-app
 
 help: ## Display this help message
