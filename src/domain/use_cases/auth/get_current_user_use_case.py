@@ -24,7 +24,5 @@ class GetCurrentUserUseCase:
             "email": user.email,
             "full_name": user.full_name,
             "role": user.role.value,
-            "status": user.status.value,
-            "last_login": user.last_login.isoformat() if user.last_login else None,
-            "created_at": user.created_at.isoformat() if user.created_at else None,
+            "status": user.status.value
         }

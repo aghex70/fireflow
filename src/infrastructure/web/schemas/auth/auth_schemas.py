@@ -73,8 +73,6 @@ class UserResponseSchema(BaseModel):
     full_name: str | None = Field(None, description="Full name")
     role: str = Field(..., description="User role")
     status: str = Field(..., description="User status")
-    last_login: datetime | None = Field(None, description="Last login timestamp")
-    created_at: datetime | None = Field(None, description="Creation timestamp")
 
 
 class LoginResponseSchema(BaseModel):
@@ -103,8 +101,6 @@ class CurrentUserResponseSchema(BaseModel):
     full_name: str | None = Field(None, description="Full name")
     role: str = Field(..., description="User role")
     status: str = Field(..., description="User status")
-    last_login: datetime | None = Field(None, description="Last login timestamp")
-    created_at: datetime | None = Field(None, description="Creation timestamp")
 
 
 class SuccessResponseSchema(BaseModel):

@@ -32,8 +32,7 @@ class TestLoginUseCase:
             email="test@example.com",
             full_name="Test User",
             role=UserRole.VIEWER,
-            status=UserStatus.ACTIVE,
-            last_login=datetime.now(UTC),
+            status=UserStatus.ACTIVE
         )
         mock_user_service.authenticate_user.return_value = authenticated_user
         mock_jwt_service.create_token_pair.return_value = {
@@ -205,7 +204,6 @@ class TestGetCurrentUserUseCase:
         current_user.full_name = "Current User"
         current_user.role = UserRole.VIEWER
         current_user.status = UserStatus.ACTIVE
-        current_user.last_login = None
         current_user.created_at = None
         mock_user_service.get_user_by_id.return_value = current_user
 

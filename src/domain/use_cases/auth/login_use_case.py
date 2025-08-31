@@ -44,10 +44,7 @@ class LoginUseCase:
                 "email": authenticated_user.email,
                 "full_name": authenticated_user.full_name,
                 "role": authenticated_user.role.value,
-                "status": authenticated_user.status.value,
-                "last_login": authenticated_user.last_login.isoformat()
-                if authenticated_user.last_login
-                else None,
+                "status": authenticated_user.status.value
             },
             **tokens,
         }

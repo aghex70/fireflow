@@ -34,7 +34,6 @@ class User:
     status: UserStatus = UserStatus.ACTIVE
     id: int | None = None
     full_name: str | None = None
-    last_login: datetime | None = None
 
     def set_password(self, password: str) -> None:
         """Set password hash."""

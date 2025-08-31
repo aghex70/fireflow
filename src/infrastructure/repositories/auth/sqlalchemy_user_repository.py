@@ -29,7 +29,6 @@ class SQLAlchemyUserRepository(UserRepository):
                 password_hash=user.password_hash,
                 full_name=user.full_name,
                 status=user.status.value,
-                last_login=user.last_login,
                 role=user.role.value,
             )
 
@@ -100,6 +99,5 @@ class SQLAlchemyUserRepository(UserRepository):
             password_hash=db_user.password_hash,
             full_name=db_user.full_name,
             role=UserRole(db_user.role),
-            status=UserStatus(db_user.status),
-            last_login=db_user.last_login,
-        )
+            status=UserStatus(db_user.status)
+            )

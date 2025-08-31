@@ -24,7 +24,6 @@ class TestUser:
         assert user.status == UserStatus.ACTIVE  # Default value
         assert user.id is None
         assert user.full_name is None
-        assert user.last_login is None
 
     def test_user_creation_with_all_fields(self):
         """Test user creation with all fields specified."""
@@ -36,8 +35,7 @@ class TestUser:
             password_hash="hashed_password",
             full_name="Admin User",
             role=UserRole.ADMIN,
-            status=UserStatus.ACTIVE,
-            last_login=login_time
+            status=UserStatus.ACTIVE
         )
 
         assert user.id == 1
@@ -47,7 +45,6 @@ class TestUser:
         assert user.full_name == "Admin User"
         assert user.role == UserRole.ADMIN
         assert user.status == UserStatus.ACTIVE
-        assert user.last_login == login_time
 
     @pytest.mark.parametrize("role", [
         UserRole.ADMIN,
