@@ -44,11 +44,11 @@ RUN echo 'alias alembic="uv run alembic"' >> /root/.bashrc && \
     echo 'alias pytest="uv run pytest"' >> /root/.bashrc
 
 # Expose port
-EXPOSE 5000
+EXPOSE 12345
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD uv run python -c "import requests; requests.get('http://localhost:5000/health', timeout=5)"
+    CMD uv run python -c "import requests; requests.get('http://localhost:12345/health', timeout=5)"
 
 # Run the application using uv
 CMD ["uv", "run", "python", "src/app.py"]

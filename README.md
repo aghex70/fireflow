@@ -34,7 +34,7 @@ Create a `.env` file in the project root with your configuration:
 # Flask Configuration
 FLASK_ENV=development
 FLASK_DEBUG=1
-FLASK_PORT=5000
+FLASK_PORT=12345
 FLASK_SECRET_KEY=dev-flask-secret-key-for-development-only-change-in-production
 
 # Database Configuration
@@ -99,9 +99,9 @@ This starts all services:
 ### Application URLs
 
 The application will be available at:
-- **Main application**: http://localhost:5000
-- **API documentation**: http://localhost:5000/apidocs/
-- **Health check**: http://localhost:5000/health
+- **Main application**: http://localhost:12345
+- **API documentation**: http://localhost:12345/apidocs/
+- **Health check**: http://localhost:12345/health
 - **Flower dashboard**: http://localhost:5555
 
 ### Makefile Commands
@@ -122,7 +122,7 @@ make clean-db      # Clean and recreate database
 
 ### Web Interface
 
-Access the web interface at http://localhost:5000 to:
+Access the web interface at http://localhost:12345 to:
 - Manage firewalls across different environments
 - Create and configure filtering policies
 - Define detailed firewall rules
@@ -130,7 +130,7 @@ Access the web interface at http://localhost:5000 to:
 
 ### API Usage
 
-Visit Swagger endpoint for ease of use: http://localhost:5000/apidocs/
+Visit Swagger endpoint for ease of use: http://localhost:12345/apidocs/
 
 ### Project Structure
 

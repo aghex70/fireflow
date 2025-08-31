@@ -220,7 +220,7 @@ class AppSettings(BaseSettings):
         description="Flask secret key (must be set via environment)",
     )
     flask_host: str = Field(default="0.0.0.0", description="Flask host")  # noqa: S104
-    flask_port: int = Field(default=5000, description="Flask port")
+    flask_port: int = Field(default=12345, description="Flask port")
 
     # Component settings
     database: DatabaseSettings = Field(default_factory=DatabaseSettings)

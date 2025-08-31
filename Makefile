@@ -35,8 +35,8 @@ up: ## Start all services
 	@echo "$(BLUE)Starting FireFlow application...$(RESET)"
 	$(DOCKER_COMPOSE) up --build -d
 	@echo "$(GREEN)✓ Application started$(RESET)"
-	@echo "$(GREEN)🌐 App: http://localhost:5000$(RESET)"
-	@echo "$(GREEN)📚 API Docs: http://localhost:5000/apidocs/$(RESET)"
+	@echo "$(GREEN)🌐 App: http://localhost:12345$(RESET)"
+	@echo "$(GREEN)📚 API Docs: http://localhost:12345/apidocs/$(RESET)"
 	@echo "$(GREEN)🌸 Flower: http://localhost:5555$(RESET)"
 
 down: ## Stop all services
