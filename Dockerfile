@@ -32,7 +32,6 @@ RUN uv sync --frozen --no-dev
 
 # Copy application code
 COPY src/ ./src/
-COPY celery_worker.py ./
 COPY alembic.ini ./
 COPY alembic/ ./alembic/
 
