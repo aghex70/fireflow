@@ -27,6 +27,9 @@ pip install -e ".[dev]"
 ```
 
 ### Configuration
+Copy .env.example to .env
+
+or
 
 Create a `.env` file in the project root with your configuration:
 
@@ -65,16 +68,6 @@ FLOWER_BASIC_AUTH=admin:admin
 LOG_LEVEL=DEBUG
 ```
 
-Or just copy .env.example to .env
-
-### Database Setup
-
-Initialize the database with the latest schema:
-
-```bash
-# Run database migrations
-uv run alembic upgrade head
-```
 
 ### Starting the Services
 
