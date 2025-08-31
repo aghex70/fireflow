@@ -31,27 +31,41 @@ pip install -e ".[dev]"
 Create a `.env` file in the project root with your configuration:
 
 ```env
-# Application settings
-DEBUG=true
-SECRET_KEY=your-secret-key-here
-FLASK_HOST=localhost
+# Flask Configuration
+FLASK_ENV=development
+FLASK_DEBUG=1
 FLASK_PORT=5000
+FLASK_SECRET_KEY=dev-flask-secret-key-for-development-only-change-in-production
 
-# Database settings
-DATABASE_URL=sqlite:///fireflow.db
+# Database Configuration
+DB_URL=sqlite:///data/fireflow.db
+DB_ECHO=true
 
-# Redis settings for task processing
-REDIS_URL=redis://localhost:6379/0
+# Redis Configuration
+REDIS_URL=redis://redis:6379/0
+REDIS_CACHE_URL=redis://redis:6379/1
 
-# JWT settings
-JWT_SECRET_KEY=your-jwt-secret-here
-JWT_ACCESS_TOKEN_EXPIRE_MINUTES=60
-JWT_REFRESH_TOKEN_EXPIRE_DAYS=30
+# Celery Configuration
+CELERY_BROKER_URL=redis://redis:6379/0
+CELERY_RESULT_BACKEND=redis://redis:6379/0
 
-# Logging settings
-LOG_LEVEL=INFO
-LOG_FILE=logs/fireflow.log
+# JWT Configuration
+JWT_SECRET_KEY=dev-jwt-secret-key-for-development-only-change-in-production
+
+# Application Configuration
+APP_NAME=FireFlow
+APP_VERSION=1.0.0
+ENVIRONMENT=development
+
+# Flower Configuration
+FLOWER_PORT=5555
+FLOWER_BASIC_AUTH=admin:admin
+
+# Logging Configuration
+LOG_LEVEL=DEBUG
 ```
+
+Or just copy .env.example to .env
 
 ### Database Setup
 
